@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+<p align="center">Your Posts</p>
+{% endblock %}
+
+{% block content %}
+
+
+             <a  href="{{ url_for('posts.create_post')}}">
+        <button style="margin-top: 10px" type="submit" class="btn btn-outline-secondary">Create post</button>
+    </a>
+
+
+
+
+{% for post in pages.items %}
+        <p>
+            <a href="{{url_for('posts.post_detail',slug=post.slug)}}"> {{ post.title }}</a>
+        </p>
+    {% endfor %}
+   <nav>
+      <ul class="pagination">
+
+        <li {% if not pages.has_prev %} class="page-item disabled" {% endif %}>
+          <a class="page-link" href="./?page={{ pages.prev_num}}" tabindex="-1">Previous</a>
+        </li>
+          {% for page in pages.iter_pages() %}
+          <li {% if page==pages.page %} class="page-item active" {% endif %}>
+            <a class="page-link" href="./?page={{page}}">{{ page }} <span class="sr-only">(current)</span></a>
+        </li>
+          {% endfor %}
+
+
+
+        <li {% if not pages.has_next %} class="page-item disabled" {% endif %}>
+          <a class="page-link" href="./?page={{ pages.next_num}}">Next</a>
+        </li>
+      </ul>
+    </nav>
+{% endblock %}

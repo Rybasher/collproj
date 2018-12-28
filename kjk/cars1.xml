@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cars>
+	<car exc="no" color="blue" >
+
+		<mark>Volkswagen</mark>
+		 <Year>2018</Year>
+		 <Model>Tiguan</Model>
+         <distance>6450</distance>
+		 <Type>Кроссовер</Type>
+		 <Vechicle>2.0</Vechicle>
+		 <Owner>Larisa Utka</Owner>
+	</car>
+	<car exc="yes" color="white">
+		<mark>Mazda</mark>
+		 <Year>2017</Year>
+		 <Model>СХ-5</Model>
+         <distance>64350</distance>
+		 <Type>Кроссовер</Type>
+		 <Vechicle>2.5</Vechicle>
+		 <Owner>Nikita Kucherenko</Owner>
+	</car>
+	<car exc="no" color="green">
+		<mark>Хуй Кирилла</mark>
+		 <Year>2015</Year>
+		 <Model>Sportege</Model>
+         <distance>12450</distance>
+		 <Type>Кроссовер</Type>
+		 <Vechicle>2.4</Vechicle>
+		 <Owner>Невидниченко</Owner>
+	</car>
+	<car exc="no" color="white">
+		<mark>MASERATI</mark>
+		 <Year>2015</Year>
+		 <Model>GHIBLI</Model>
+         <distance>1450</distance>
+		 <Type>Седан</Type>
+		 <Vechicle>3.0</Vechicle>
+		 <Owner>Burlya Andrew</Owner>
+	</car>
+	<car exc="yes" color="black">
+		<mark>PORSCHE</mark>
+		 <Year>2017</Year>
+		 <Model>MACAN</Model>
+         <distance>6450</distance>
+		 <Type>Кроссовер</Type>
+		 <Vechicle>3.0</Vechicle>
+		 <Owner>Graph Dracula</Owner>
+	</car>
+	<car exc="no" color="black">
+		<mark>Toyota</mark>
+		 <Year>2017</Year>
+		 <Model>HIGHLANDER</Model>
+        <distance>6450</distance>
+		 <Type>Кроссовер</Type>
+		 <Vechicle>2.7</Vechicle>
+		 <Owner>Pavel</Owner>
+	</car>
+	<car exc="yes" color="yellow">
+		<mark>Cadillac</mark>
+		 <Year>2011</Year>
+		 <Model>SRX</Model>
+         <distance>632450</distance>
+		 <Type>Седан</Type>
+		 <Vechicle>3.0</Vechicle>
+		 <Owner>Nikita Kucherenko</Owner>
+	</car>
+	<car exc="yes" color="blue">
+		<mark>Volkswagen</mark>
+		 <Year>2018</Year>
+		 <Model>PASSAT</Model>
+         <distance>645320</distance>
+		 <Type>Седан</Type>
+		 <Vechicle>2.0</Vechicle>
+		 <Owner>Bogdan</Owner>
+	</car>
+	<car exc="no" color="green">
+		<mark>Toyota</mark>
+		 <Year>2018</Year>
+		 <Model>Camry</Model>
+         <distance>32450</distance>
+		 <Type>Седан</Type>
+		 <Vechicle>2.5</Vechicle>
+		 <Owner>Burlya Andrew</Owner>
+	</car>
+	<car exc="no" color="red">
+		<mark>Nissan</mark>
+		 <Year>2018</Year>
+		 <Model>Leaf</Model>
+         <distance>5450</distance>
+		 <Type>Хетчбэк</Type>
+		 <Vechicle>2.7</Vechicle>
+		 <Owner>Masha</Owner>
+	</car>
+</cars>

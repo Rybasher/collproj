@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{post.title}}
+
+{% endblock %}
+{% block content_title %}
+<div align="center">
+    {{ post.title }}
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div align="center">
+    <div class="tags">
+        {%  for tag in tags %}
+            <a href="{{ url_for('posts.tag_detail', slug=tag.slug)}}"> <span class="badge badge-primary">{{ tag.name }}</span></a>
+        {% endfor %}
+    </div>
+         {{ post.body }}
+
+    <p>{{ post.created }}</p>
+</div>
+ <div class="change">
+        <span class="label label-info">Вы можете изменить данный пост</span>
+        <div><a href="{{ url_for('posts.edit_post', slug = post.slug)}}"><button type="submit" class="btn btn-outline-secondary">Change</button></a></div>
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+<xs:element name="cars">
+  <xs:complexType>
+    <xs:sequence>
+    	<xs:element name="car" maxOccurs="unbounded" minOccurs="0">
+  		<xs:complexType>
+    	<xs:sequence>
+      		<xs:element name="mark" type="xs:string"/>
+		    <xs:element name="Year" type="xs:integer"/>
+		    <xs:element name="Model" type="xs:string"/>
+		    <xs:element name="distance" type="xs:integer"/>
+		    <xs:element name="Type" type="xs:string"/>
+		    <xs:element name="Vechicle" type="xs:string"/>
+		    <xs:element name="Owner" type="xs:string"/>
+		</xs:sequence>
+			<xs:attribute name="exc" type="xs:string"/>
+    		<xs:attribute name="color" type="xs:string"/>
+    		
+ 		</xs:complexType>
+ 		</xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>

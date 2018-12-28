@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Brighton and Hove Python User Group : {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/typography.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+
+    <link href="" rel="alternate" title="BrightonPy Events" type="application/atom+xml">
+    <style>
+
+.feedback {
+border-radius: 0 10px 10px 0;
+width: 300px;
+background: #333; /* Цвет фона */
+color: #fff; /* Цвет текста */
+position: fixed; /* Фиксируем на одном месте  */
+min-height: 100px; /* Минимальная высота */
+top: 120px; left: -280px;
+border-right: 20px solid #fc0; /* Оранжевая граница справа */
+padding: 10px;
+transition: left 1s; /* Анимация */
+}
+.feedback img {
+float: left;
+margin: 0 10px 0 0;
+}
+.feedback::after {
+content: 'Обратная связь'; /* Выводим текст */
+color: #000; /* Цвет надписи */
+position: absolute; /* Абсолютное позиционирование */
+right: -75px; bottom: 100px;
+transform: rotate(-90deg); /* Поворачиваем текст */
+-webkit-transform: rotate(-90deg);
+}
+.feedback:hover {
+left: 0; /* При наведении сдвигаем вправо */
+}
+        a{
+            text-decoration: none;
+            font-family: "Lora", Georgia, "Times New Roman", Times, serif;
+
+        }
+  </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Brighton Python User Group" /></a>
+            <h1>Brighton and Hove <br /> Python User Group</h1>
+
+        </div>
+
+
+
+        <div id="menu">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('page', path='location') }}">Locations</a></li>
+                <li class="meetings">
+                    <a href="{{ url_for('posts.index') }}">Meetings</a>
+                    <a class="feed" href="" title="BrightonPy Events Atom Feed">
+                        <img src="{{ url_for('static', filename='images/atom.png') }}" alt="BrightonPy Events Atom Feed" />
+                    </a>
+                </li>
+            </ul>
+            <div class="feedback">
+           <form action="backref" method="post">
+               <p align="center">Введите отзыв</p>
+               <input type="text" class="form-control" placeholder="Title" name="text">
+                <p align="center">Введите свой email</p>
+               <input type="text" class="form-control" placeholder="Title" name="email">
+               <button type="submit">Send</button>
+           </form>
+        </div>
+        </div>
+        <div class="form-row">
+
+
+    <div class="col-7">
+        <form>
+
+            <input type="text" class="form-control" placeholder="Title" name="q" value="{{ request.args.get('q', '') }}">
+         <button  class="btn btn-primary" type="submit" class="form-control">Search</button>
+        </form>
+    </div>
+
+
+
+        </div>
+
+
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <div id="footer">
+
+        <p>Site powered by <a href="http://flask.pocoo.org">Flask</a> and hosted by <a href="http://heroku.com">heroku</a>. Source code on <a href="http://github.com/j4mie/brightonpy.org">GitHub</a>. </p>
+    </div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-16290537-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+Flask==0.12.2
+Markdown==2.6.8
+PyYAML==3.12
+waitress==1.0.2
+SQLAlchemy
+mysql-connector
+flask-security
+flask-login
+flask-Admin

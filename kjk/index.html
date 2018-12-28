@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mx-auto">xml-file logoparser</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <form method="post" action="{{ url_for('index') }}" enctype="multipart/form-data">
+          <div class="form-group">
+            <div class="form-row">
+                <div class="form-col">
+                    <input type="file" name="file" class="form-control-file" >
+                </div>
+
+                <div class="form-col">
+                    <button type="submit" class="btn btn-primary"> Submit</button>
+                </div>
+
+
+            </div>
+          </div>
+        </form>
+    </div>
+</div>
+<div class="row mt-5 mx-auto text-center">
+    {% for elem in ips %}
+
+        <div class="col-3" align="center">
+            <p align="left">Mark - {{ elem['mark'] }}</p>
+            <div class="col-3" align="center">
+                {{elem['year'] }}
+            </div>
+            <div class="col-3">
+                 {{elem['model']}}
+            </div>
+            <div class="col-3">
+                {{elem['dis']}}
+            </div>
+            <div class="col-3">
+                {{elem['type']}}
+            </div>
+            <div class="col-3">
+                {{elem['vec']}}
+            </div>
+            <div class="col-3">
+                {{elem['own']}}
+            </div>
+
+        </div>
+
+
+    {% endfor %}
+
+</div>
+
+<h1 class="mx-auto"> Search for parametrs</h1>
+
+<div class="container mt-5">
+        <div class="row justify-content-center">
+            <form method="post" action="addmessage">
+                <div class="row justify-content-center">
+                <div align="center" class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="form-check-label" for="inlineRadio1">Владелец</label>
+                </div>
+                <div align="center" class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                      <label class="form-check-label" for="inlineRadio2">Пробег</label>
+                </div>
+                 <div align="center" class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                  <label class="form-check-label" for="inlineRadio2">Вместе</label>
+            </div>
+                </div>
+        <p align="center" class="mt-3">Введите значение</p>
+        <input type="text" placeholder="Владелец" name="owner" align="top">
+        <input type="text" placeholder="Пробег" name="dis" align="top">
+
+        <p align="center"><button  type="submit" class="btn btn-primary mt-3">Add message</button></p>
+    </form>
+</div>
+</div>
+
+<div class=" mt-5 mx-auto">
+    {% for i in wow %}
+
+    <div>
+        <p>Марка автомобиля: {{i['mark'] }}</p>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+
+
+{% endblock %}
