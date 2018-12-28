@@ -3,6 +3,7 @@ from brighton import app
 import logging
 import datetime
 import markdown
+import unicodedata
 from urllib.parse import urljoin
 from datetime import timedelta
 from werkzeug import secure_filename
@@ -19,47 +20,9 @@ logger = logging.getLogger(__name__)
 cache = {}
 
 
-
-
-"""
-def get_meetings():
-    "Return a list of all meetings"
-
-    if 'meeting_list' in cache:
-        return cache['meeting_list']
-
-    files = os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), app.config['MEETINGS_DIR'])))
-    meetings = filter(lambda meeting: meeting is not None, [get_meeting(file) for file in files])
-    result = sorted(meetings, key=lambda item: item['datetime'])
-
-    cache['meeting_list'] = result
-    return result
-
-
-def past_meetings():
-    meeting_list = get_meetings()
-    now = datetime.datetime.now()
-    return [meeting for meeting in meeting_list if meeting['datetime'] < now]
-
-
-def future_meetings():
-    meeting_list = get_meetings()
-    now = datetime.datetime.now()
-    return [meeting for meeting in meeting_list if meeting['datetime'] > now]
-
-"""
-
-
 @app.route('/')
 def index():
     return render_template('homepage.html')
-
-
-#@app.route('/thank')
-#def send():
- #   send_message.email(subject=request.form("text"), msg=request.form('email'))
-
-
 
 
 
@@ -92,27 +55,19 @@ def page(path):
         abort(404)
     return render_template('page.html', page=page)
 
+
 @app.route('/backref', methods=['POST','GET'])
 def sendem():
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
     server.login(Configuration.EMAIL_ADDRESS, Configuration.PASSWORD)
-    subject = request.form('name')
+    subject = request.form['email']
+    msg = request.form['text1']
+    subject = str(subject)
+    msg = str(msg)
 
-
-    msg = request.form('text')
-    list.append(subject)
-    list.append(msg)
-    first = str(list[0])
-    sec = str(list[1])
-
-
-
-
-
-
-    message = 'Subject: {}\n\n{}'.format(first, sec)
+    message = 'Subject: {}\n\n{}'.format(subject, msg)
     server.sendmail(Configuration.EMAIL_ADDRESS, Configuration.EMAIL_ADDRESS, message)
     server.quit()
     return render_template('one.html')

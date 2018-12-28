@@ -12,9 +12,10 @@
 
 
 
-
+<H1>Meetings</H1>
+<hr color="black">
 {% for post in pages.items %}
-        <p>
+        <p style="font-size: 15px">
             <a href="{{url_for('posts.post_detail',slug=post.slug)}}"> {{ post.title }}</a>
         </p>
     {% endfor %}
